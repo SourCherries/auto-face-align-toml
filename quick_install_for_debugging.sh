@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
 # Author Carl's shell script to install and run demo on his macOS computers.
-#   Already assumes that cmake and requirements.txt taken care of.
-
 # Useful for debugging.
+
+# LOCAL INSTALL
+# >>> conda create --name afa-toml conda-forge::dlib "python>=3.9" scikit-image
+# >>> conda activate afa-toml
+# >>> pip install -U pytest
+# >>> cd ~/Tools/auto-face-align-toml
+# >>> pip install .
+# >>> pytest -v src/alignfaces/tests/
+# >>> python demos/demo_1_alignment/run_demo.py
 
 mother=$(pwd)
 
@@ -12,30 +19,20 @@ status=$(uname -n)
 if [ "$status" = "ML089328-10722" ]; then
   echo "This is Carl's ZU MacBook Pro (M1)."
   eval "$(conda shell.bash hook)"
-  conda activate afa-test
-elif [ "$status" = "Carls-iMac" ] ; then
-  echo "This is Carl's iMac."
-  source slimmest/bin/activate
-elif [ "$status" = "Carls-MacBook-Pro.local" ] ; then
-  echo "This is Carl's MacBook Pro."
-  source activate F0
+  conda activate afa-toml
 else
   echo "Unknown computer."
 fi
 
 # Install face toolbox.
 if [ "$1" = "install" ] ; then
-  #cd alignfaces
-  python setup.py install
-  #cd $mother
+  pip install .
 else
   echo "Type './quick_install_for_debugging.sh install' to install face toolbox."
-  #cd alignfaces
-  #cd $mother
 fi
 
 # Run unit tests.
-cd "$mother/alignfaces/src/alignfaces/tests"
+cd "$mother/src/alignfaces/tests"
 pytest -v
 cd $mother
 
