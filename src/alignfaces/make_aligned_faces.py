@@ -1190,7 +1190,7 @@ def morph_between_two_faces(source_dir, do_these, num_morphs, file_prefix='',
     get_landmarks(output_dir, "P", "png")
 
     # Get aperture for inner-face
-    the_aperture = place_aperture(output_dir, output_dir, no_save=True)
+    the_aperture = place_aperture(output_dir, no_save=True)
     inner_map = (the_aperture * 255) > 16
 
     # Normalize contrast within aperture, common mean of 127.5
