@@ -136,6 +136,10 @@ results/NIM-sp-o-aligned/*bmp
 alignfaces2/requirements_slimmest.txt
 slimmest-pydeps/
 
+demos/demo_2_morphing/an-unusual-pair-aligned/*jpg
+demos/demo_2_morphing/an-unusual-pair-aligned-morphed/*png
+results_temporary.dat
+
 # History files
 .Rhistory
 .Rapp.history
