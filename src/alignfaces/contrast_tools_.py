@@ -9,8 +9,8 @@ from skimage import exposure
 #               no clipping occurs within map, but can occur outside.
 #
 #   output image is numpy array, unsigned 8-bit integers.
-def max_stretch_around_127(full_image, inner_locs=None):
-    if inner_locs is None:
+def max_stretch_around_127(full_image, inner_locs=[]):
+    if inner_locs==[]:
         inner_locs = np.ones(full_image.shape) == 1
     else:
         print("\nWarning: application of max_stretch_around_127 to subregion" +
@@ -37,10 +37,10 @@ def max_stretch_around_127(full_image, inner_locs=None):
 #               no clipping occurs within map, but can occur outside.
 #
 #   output image is numpy array, unsigned 8-bit integers.
-def max_stretch_around_original_mean(full_image, inner_locs=None):
+def max_stretch_around_original_mean(full_image, inner_locs=[]):
     if (full_image.min() >=0) and (full_image.max()<=1):
         full_image = full_image * 255
-    if inner_locs is None:
+    if inner_locs==[]:
         inner_locs = np.ones(full_image.shape) == 1
     else:
         print("\nWarning: application of max_stretch_around_original_mean" +
@@ -69,8 +69,8 @@ def max_stretch_around_original_mean(full_image, inner_locs=None):
     return full_image.astype(np.uint8)
 
 
-def max_stretch(full_image, inner_locs=None):
-    if inner_locs is None:
+def max_stretch(full_image, inner_locs=[]):
+    if inner_locs==[]:
         inner_locs = np.ones(full_image.shape) == 1
     else:
         print("\nWarning: application of max_stretch to subregion" +
@@ -86,7 +86,7 @@ def max_stretch(full_image, inner_locs=None):
     return full_image.astype(np.uint8)
 
 
-def contrast_stretch(full_image, inner_locs=None, type="max"):
+def contrast_stretch(full_image, inner_locs=[], type="max"):
     if full_image.ndim == 3:
         assert (type=="max") or (type==None)
         if type == "max":
