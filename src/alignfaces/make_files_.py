@@ -10,7 +10,7 @@ def get_source_files(MotherDir, FilePrefix="", FilePostfix="jpg"):
     for p in MotherDir.rglob(FilePrefix + "*" + FilePostfix):
         input_files.append(str(p))
         print(str(p))
-    return sorted(input_files)
+    return input_files
 
 
 # Run at outset of align_procrustes() and place_aperture()
@@ -28,7 +28,7 @@ def clone_directory_tree(MotherDir, new_dir="aligned", FilePrefix="", FilePostfi
     for p in P:
         new_dir = new_directory / p.relative_to(MotherDir)
         if not new_dir.exists():
-            new_dir.mkdir(parents=True, exist_ok=True) # NEED TEST
+            new_dir.mkdir(parents=False, exist_ok=False) # NEED TEST
         print(new_dir)
     return str(new_directory) + os.sep
 
