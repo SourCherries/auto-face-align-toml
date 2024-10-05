@@ -69,12 +69,7 @@ venv.bak/
 
 # -----------------------------------------------------------------------------
 # Other stuff specific to my package
-slim
-slimmer
-slimmest
-method_notes_temp.txt
-README.rtf
-README.rst
+quick_install_for_debugging.sh
 .DS_Store
 
 /results/KUFD-DC/*jpg
@@ -133,12 +128,21 @@ results/NIM-sp-o/*bmp
 results/NIM-sp-c-aligned/*bmp
 results/NIM-sp-o-aligned/*bmp
 
-alignfaces2/requirements_slimmest.txt
-slimmest-pydeps/
+results_temporary.dat
+landmarks.txt
+specs.csv
+
+demos/demo_1_alignment/faces-aligned/*jpg
+demos/demo_1_alignment/faces-aligned-windowed/*jpg
 
 demos/demo_2_morphing/an-unusual-pair-aligned/*jpg
 demos/demo_2_morphing/an-unusual-pair-aligned-morphed/*png
-results_temporary.dat
+demos/demo_2_morphing/an-unusual-pair-aligned-morphed-windowed/*png
+
+demos/demo_3_averaging/faces-of-merkel-aligned/*jpg
+demos/demo_3_averaging/faces-of-merkel-aligned-warp-to-mean/*.png
+demos/demo_3_averaging/faces-of-merkel-aligned-warp-to-mean-windowed/
+demos/demo_3_averaging/faces-of-merkel-aligned-aligned-windowed/
 
 # History files
 .Rhistory
