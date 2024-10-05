@@ -8,12 +8,6 @@ Carl M. Gaspar & Oliver G.B. Garrod
 #### But you want to line up all of the faces like this:
 ![](demos/demo_1_alignment/collage_aligned.png)
 
-<!-- #### Specifically, the locations of facial features should overlap across images, as you can confirm here: -->
-
-<!-- ![](demos/demo_1_alignment/animation_aligned.gif) -->
-<!-- <p align="center" width="100%">
-    <img width="33%" src="demos/demo_1_alignment/animation_aligned.gif">
-</p> -->
 #### Perhaps you would also like to window the faces to show only inner facial features like this:
 ![](demos/demo_1_alignment/collage_aligned_windowed.png)
 
@@ -37,51 +31,48 @@ Automatic landmark detection means that it is also easy to separate **shape** an
 AFA provides functions for two types of face-warping manipulations common in face perception research.
 
 ### Morphing between faces
-<!-- Here we gradually morph between [Choi Min-sik](https://en.wikipedia.org/wiki/Choi_Min-sik) (on the far left) and [Sarah Silverman](https://en.wikipedia.org/wiki/Sarah_Silverman) (on the far right) in equal 9 steps:
-![](demos/demo_2_morphing/figure-demo-2.png) -->
 To learn how to do this please see [demo 2](demos/demo_2_morphing/README.md).
 
-
-
 ### Enhanced average of facial identity
-<!-- First we used AFA to align various photos of [Tony Blair](https://en.wikipedia.org/wiki/Tony_Blair) taken at different times and under different conditions. A simple average of these aligned faces is shown on the left.
-
-Prior to averaging, we can also use AFA to warp each image of Tony Blair to match the average of landmark positions across each instance of Tony Blair. This enhanced average is shown on the far right.
-
-<p align="center" width="100%">
-    <img width="33%" src="demos/demo_3_averaging/comparison_average_types.png">
-</p> -->
-
-<!-- This **enhanced facial average** was first demonstrated by
-
-> Burton, A. M., Jenkins, R., Hancock, P. J. B., & White, D. (2005). Robust representations for face recognition: The power of averages. Cogn Psychol, 51(3), 256–284. https://doi.org/10.1016/j.cogpsych.2005.06.003
-
-We used the same photos of Tony Blair as they used (in their Figure 3).
-
-Manual landmark selection was required in Burton et al. (2005), whereas AFA automated the entire process in our demo. -->
-
 To learn how to do this please see [demo 3](demos/demo_3_averaging/README.md).
-
 
 # Setup
 
 It is highly recommended that you have **conda** installed, preferably **miniconda** rather than full fat **anaconda**.
 
-If you do have **conda**, then do the following to install:
-```
+If you do have **conda**, then this is the easiest way to install:
+
+```bash
 conda create --name myenv conda-forge::dlib "python>=3.9" scikit-image
 
 conda activate myenv
 
+conda install -c conda-forge matplotlib
+```
+
+To install AFA next you have two options:
+
+You either do this:
+
+```bash
 pip install "alignfaces @ git+https://git@github.com/SourCherries/auto-face-align.git"
 ```
 
-This will create a new virtual environment called `myenv`. You can use another name for that. You'll need to activate this environment using `conda activate myenv` whenever you want to use AFA. To deactivate, simply type `conda deactivate myenv`.
+Or if instead you want a readable and editable copy of AFA on your local machine, then first clone this repository, go to the root folder `auto-face-align`, and then do this:
 
-Windows users may encounter a problem with plotting. That is a [general issue](https://stackoverflow.com/questions/69786885/after-conda-update-python-kernel-crashes-when-matplotlib-is-used) with **Matplotlib** on Windows. To fix, simply type the following while your `myenv` is activated:
-
+```bash
+pip install .
 ```
-conda install freetype=2.10.4
+
+Regardless of how you installed AFA, the above process will create a new virtual environment called `myenv`. You can use another name for that. You'll need to activate this environment using `conda activate myenv` whenever you want to use AFA. To deactivate, simply type `conda deactivate myenv`.
+
+If you have a readable/editable copy of AFA on your local machine, you will have copies of all the demos. Most users will want those demo scripts to get started on their projects.
+
+Other users may want a readable/editable copy of AFA to contribute to AFA, or to evaluate AFA by running the analyses under `results` or the unit tests. To run the unit tests, go to the root folder `auto-face-align` then do this:
+
+```bash
+pip install -U pytest
+pytest -v src/alignfaces/tests/
 ```
 
 # How well does this work?
@@ -95,15 +86,6 @@ On Windows, you need to install Microsoft Visual Studio.
 On Mac, you need to install Xcode Command Line Tools.
 1. Find an Xcode version compatible with your [macOS version](https://en.wikipedia.org/wiki/Xcode).
 2. Get the right version of [Xcode Command Line Tools](https://developer.apple.com/downloads/index.action).
-
-## Create a virtual environment
-
-## Copy package
-```
-git clone --recursive https://github.com/SourCherries/facepackage-slim.git
-cd facepackage-slim/alignfaces2
-pip install cmake
-python setup.py install
 ``` -->
 
 # Citation
@@ -115,84 +97,3 @@ DOI:
 
 # License
 This module is under an Apache-2.0 license.
-<!-- **AFA** can also: -->
-
-<!-- - Detect facial landmarks using the highly [DLIB](http://dlib.net) library, output to JSON file
-- Overlay a window around faces, in the form of a separable alpha channel
-- Create morphed faces gradually transform from one face to another -->
-
-<!-- - Detect facial landmarks
-- Overlay a window around faces
-- Create morphed faces gradually transform from one face to another -->
-
-
-
-<!-- # Code -->
-
-
-<!-- # A collapsible section with markdown
-<details>
-  <summary>Click to expand!</summary>
-
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
-
-
-
-This module can be repurposed in many ways.
-A couple of examples that come to mind:
-
-- Extraction and recombination of facial features
-
-To promote extensibility and reusability:
-- Landmarks are output to a JSON file
-- Image windows take the form of a separable alpha channel
-- Package is organized into a modular fashion, with detailed documentation -->
-
-
-<!-- # Ollie's succesful installation on Windows 10 (?)
-```
-conda create --name facepackage-pip  
-conda activate facepackage-pip  
-conda install python=3.9.5 pytest=6.2.4  
-
-cd $MYFACEPACKAGEDIR/alignfaces2  
-pip install cmake  
-pip install -r requirements.txt  
-
-python setup.py install  
-
-cd $MYFACEPACKAGEDIR/alignfaces2/src/alignfaces2/tests  
-pytest - v  
-
-cd $MYFACEPACKAGEDIR/demos/your_project_here  
-python basic_script.py  
-``` -->
-
-<!-- # facepackage
-
-Just click on the green button at the top right to download this as a zip file.
-
-* if you want to do more than testing, let me know via email
-* otherwise, please do not make any changes
-
-Put somewhere on your computer.
-
-Go to /alignfaces2 and read install-generic.rtf
-
-Additional details for macos users should be read in install-macos.rtf
-
-Those are all the instructions you need.
-If I missed something, let me know!
-
-What I need from you:
-1. Your operating system and version of Python (should be 3+).
-2. Install successful? If not, copy of error messages.
-3. Test successful? If not, copy of error messages.
-
-Thanks again dear testers,
-Carl -->
